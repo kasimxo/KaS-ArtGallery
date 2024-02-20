@@ -24,24 +24,27 @@ namespace artgallery_sgdb {
                 MessageBox.Show("Usuario o contraseña no válidos");
             } else {
                 string file = AesCryp.Encrypt(txt_username.Text) + ".ls";
+                StreamReader sr;
+                try {
+                    sr = new StreamReader("data\\" + file);
+                    string encpss = sr.ReadLine();
+                    sr.Close();
 
-                var sr = new StreamReader("data\\" + file);
+                    string decpss = AesCryp.Decrypt(encpss);
 
-                string encpss = sr.ReadLine();
-                sr.Close();
-
-                string decpss = AesCryp.Decrypt(encpss);
-
-                if (decpss == txt_password.Text) {
-                    //MessageBox.Show("In");
-                    Program.mw = new MainWindow();
-                    Program.mw.Show();
-                    this.Visible = false;
-                } else {
+                    if (decpss == txt_password.Text) {
+                        //MessageBox.Show("In");
+                        Program.mw = new MainWindow();
+                        Program.mw.Show();
+                        this.Visible = false;
+                    } else {
+                        MessageBox.Show("Nombre de usuario o contraseña no válidos.");
+                    }
+                } catch (Exception ex) {
+                    //no se ha encontrado el usuario
                     MessageBox.Show("Nombre de usuario o contraseña no válidos.");
+ 
                 }
-
-
             }
         }
 
