@@ -16,7 +16,8 @@ namespace artgallery_sgdb {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-
+            txt_password.Text = string.Empty;
+            txt_username.Text = string.Empty;
         }
 
         private void btn_acceder_Click(object sender, EventArgs e) {

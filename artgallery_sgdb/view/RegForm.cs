@@ -26,8 +26,19 @@ namespace artgallery_sgdb {
                 sw.WriteLine(encpss);
                 sw.Close();
 
+
+                Program.mw = new MainWindow();
+                Program.mw.Show();
+
+                Program.ventana.Visible = false;
+
+                this.Close();
                 //El nombre del archivo es el nombre del usuario encriptado
             }
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

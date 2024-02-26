@@ -23,31 +23,24 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            btn_acceder = new Button();
+            components = new System.ComponentModel.Container();
             btn_registrar = new Button();
             btn_limpiar = new Button();
             txt_password = new TextBox();
             txt_username = new TextBox();
             lvl_password = new Label();
             lvl_username = new Label();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
-            // 
-            // btn_acceder
-            // 
-            btn_acceder.Location = new Point(219, 147);
-            btn_acceder.Name = "btn_acceder";
-            btn_acceder.Size = new Size(75, 23);
-            btn_acceder.TabIndex = 13;
-            btn_acceder.Text = "Acceder";
-            btn_acceder.UseVisualStyleBackColor = true;
             // 
             // btn_registrar
             // 
-            btn_registrar.Location = new Point(138, 147);
+            btn_registrar.Location = new Point(195, 147);
             btn_registrar.Name = "btn_registrar";
             btn_registrar.Size = new Size(75, 23);
             btn_registrar.TabIndex = 12;
             btn_registrar.Text = "Registrar";
+            toolTip1.SetToolTip(btn_registrar, "Botón ");
             btn_registrar.UseVisualStyleBackColor = true;
             btn_registrar.Click += btn_registrar_Click;
             // 
@@ -57,8 +50,9 @@
             btn_limpiar.Name = "btn_limpiar";
             btn_limpiar.Size = new Size(75, 23);
             btn_limpiar.TabIndex = 11;
-            btn_limpiar.Text = "Limpiar";
+            btn_limpiar.Text = "Cancelar";
             btn_limpiar.UseVisualStyleBackColor = true;
+            btn_limpiar.Click += btn_limpiar_Click;
             // 
             // txt_password
             // 
@@ -98,7 +92,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(559, 295);
-            Controls.Add(btn_acceder);
             Controls.Add(btn_registrar);
             Controls.Add(btn_limpiar);
             Controls.Add(txt_password);
@@ -112,13 +105,12 @@
         }
 
         #endregion
-
-        private Button btn_acceder;
         private Button btn_registrar;
         private Button btn_limpiar;
         private TextBox txt_password;
         private TextBox txt_username;
         private Label lvl_password;
         private Label lvl_username;
+        private ToolTip toolTip1;
     }
 }
