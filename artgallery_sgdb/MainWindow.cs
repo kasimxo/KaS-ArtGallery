@@ -1,6 +1,8 @@
+using artgallery_sgdb.view;
 using Microsoft.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
 namespace artgallery_sgdb {
     public partial class MainWindow : Form
@@ -21,10 +23,11 @@ namespace artgallery_sgdb {
 
             string sqlQuery;
             int id_obra = obtenerIdSeleccionado();
-            sqlQuery = "SELECT * FROM dbo.view_obras WHERE id_obra = " + id_obra.ToString() + ";";
+            sqlQuery = "SELECT * FROM dbo.view_obras WHERE Id = " + id_obra.ToString() + ";";
 
-            try { 
-           
+            try
+            {
+
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connectionString);
                 SqlConnection con = new SqlConnection(connectionString);
 
@@ -35,30 +38,31 @@ namespace artgallery_sgdb {
                 DataRow resultado = ds.Tables[0].Rows[0];
                 lbl_titulo.Text = resultado[1].ToString();
                 String rutaImagen = resultado[2].ToString();
+
                 lbl_precio.Text = resultado[3].ToString();
                 lbl_movimiento.Text = resultado[4].ToString();
                 lbl_autor.Text = resultado[5].ToString();
 
-                if (rutaImagen == null) {
+                if (rutaImagen != null && rutaImagen.Length > 1)
+                {
                     img_obra.Image = Image.FromFile(rutaImagen);
-                } else {
-                    img_obra.Image = Image.FromFile("");
+                }
+                else
+                {
+                    //Si no hay ninguna imagen, colocamos un icono de sin imagen
+                    img_obra.Image = artgallery_sgdb.Properties.Resources.imgNotFound;
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show("Ha surgido un problema visualizando los datos");
+                Debug.Write(ex.Message);
             }
 
         }
 
         private void btn_cargarObras(object sender, EventArgs e)
         {
-
-
-            string sqlQuery;
-
-            sqlQuery = "SELECT * FROM dbo.obras;";
+            string sqlQuery = "SELECT * FROM dbo.view_obras;";
 
             try
             {
@@ -162,6 +166,24 @@ namespace artgallery_sgdb {
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+
+             
+
+            int index = dataGridView1.CurrentCell.RowIndex;
+
+            int id_obra = Int32.Parse(dataGridView1.Rows[index].Cells[0].Value.ToString());
+            String titulo = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            String imagen = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            int precio = Int32.Parse(dataGridView1.Rows[index].Cells[3].Value.ToString());
+            String movimiento = dataGridView1.Rows[index].Cells[4].Value.ToString();
+            String autor = dataGridView1.Rows[index].Cells[5].Value.ToString();
+
+            Obra obra = new Obra(id_obra, titulo, imagen, precio, movimiento, autor);
+            obra.Show();
         }
     }
 }

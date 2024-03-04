@@ -42,6 +42,7 @@
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
             tabPage1 = new TabPage();
+            img_obra = new PictureBox();
             lbl_precio = new Label();
             label4 = new Label();
             btn_buscar = new Button();
@@ -60,7 +61,6 @@
             txt_box1 = new TextBox();
             button2 = new Button();
             tabPage2 = new TabPage();
-            img_obra = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -140,6 +140,15 @@
             tabPage1.Text = "Gestión inventario";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // img_obra
+            // 
+            img_obra.Location = new Point(6, 3);
+            img_obra.Name = "img_obra";
+            img_obra.Size = new Size(240, 201);
+            img_obra.SizeMode = PictureBoxSizeMode.Zoom;
+            img_obra.TabIndex = 19;
+            img_obra.TabStop = false;
             // 
             // lbl_precio
             // 
@@ -250,6 +259,7 @@
             btn_modificar.TabIndex = 7;
             btn_modificar.Text = "Modificar";
             btn_modificar.UseVisualStyleBackColor = true;
+            btn_modificar.Click += btn_modificar_Click;
             // 
             // lbl2
             // 
@@ -303,14 +313,6 @@
             tabPage2.Text = "Informes";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // img_obra
-            // 
-            img_obra.Location = new Point(6, 3);
-            img_obra.Name = "img_obra";
-            img_obra.Size = new Size(240, 201);
-            img_obra.TabIndex = 19;
-            img_obra.TabStop = false;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -320,7 +322,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Art Gallery";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

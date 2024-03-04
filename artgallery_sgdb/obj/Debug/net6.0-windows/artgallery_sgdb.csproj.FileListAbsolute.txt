@@ -115,3 +115,4 @@ C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.pdb
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.genruntimeconfig.cache
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\ref\artgallery_sgdb.dll
+C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.Obra.resources
