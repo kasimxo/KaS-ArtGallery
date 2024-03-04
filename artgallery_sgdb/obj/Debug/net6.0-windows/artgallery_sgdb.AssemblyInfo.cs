@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("artgallery_sgdb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13d0aea71669aa1dcaf30ddfcbe82c8991b98f2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efb995801cb3a4ea84d05ae69523b9ee72ae2568")]
 [assembly: System.Reflection.AssemblyProductAttribute("artgallery_sgdb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("artgallery_sgdb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
