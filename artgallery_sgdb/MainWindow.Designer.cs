@@ -136,6 +136,7 @@
             btn_borrar.TabIndex = 8;
             btn_borrar.Text = "Borrar";
             btn_borrar.UseVisualStyleBackColor = true;
+            btn_borrar.Click += btn_borrar_Click;
             // 
             // btn_modificar
             // 
@@ -150,7 +151,7 @@
             // lbl2
             // 
             lbl2.AutoSize = true;
-            lbl2.Location = new Point(77, 88);
+            lbl2.Location = new Point(77, 64);
             lbl2.Name = "lbl2";
             lbl2.Size = new Size(33, 15);
             lbl2.TabIndex = 6;
@@ -167,7 +168,7 @@
             // 
             // txt_box2
             // 
-            txt_box2.Location = new Point(134, 80);
+            txt_box2.Location = new Point(134, 56);
             txt_box2.Name = "txt_box2";
             txt_box2.Size = new Size(372, 23);
             txt_box2.TabIndex = 4;
@@ -181,7 +182,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(568, 55);
+            button2.Location = new Point(535, 26);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 2;

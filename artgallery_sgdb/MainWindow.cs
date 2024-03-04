@@ -91,14 +91,34 @@ namespace artgallery_sgdb {
         private void dataGridView1_ActivarOpciones(object sender, DataGridViewCellEventArgs e)
         {
             //Comprobamos si el usuario ha seleccionado algo para habilitar los botones
-            if(dataGridView1.SelectedCells != null){
+            if (dataGridView1.CurrentCell != null)
+            {
                 btn_borrar.Enabled = true;
                 btn_modificar.Enabled = true;
-            } else
+            }
+            else
             {
                 btn_borrar.Enabled = false;
                 btn_modificar.Enabled = false;
             }
+        }
+
+        private void btn_borrar_Click(object sender, EventArgs e)
+        {
+            int id_obra = obtenerIdSeleccionado();
+            
+            MessageBox.Show(id_obra.ToString());
+            //int id_obra = dataGridView1.GetChildAtPoint(new Point(index, 0));
+        }
+
+        /// <summary>
+        /// Busca el id del elemento seleccionado en la datagridview
+        /// </summary>
+        /// <returns></returns>
+        private int obtenerIdSeleccionado() {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            Int32.TryParse(dataGridView1.Rows[index].Cells[0].Value.ToString(), out int id_obra);
+            return id_obra;
         }
     }
 }
