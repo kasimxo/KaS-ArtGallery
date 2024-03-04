@@ -33,8 +33,6 @@
             label3 = new Label();
             label4 = new Label();
             txt_titulo = new TextBox();
-            txt_autor = new TextBox();
-            txt_movimiento = new TextBox();
             txt_precio = new TextBox();
             pictureBox1 = new PictureBox();
             label5 = new Label();
@@ -42,6 +40,7 @@
             btn_cancelar = new Button();
             btn_guardar = new Button();
             cb_movimientos = new ComboBox();
+            cb_artistas = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -88,20 +87,6 @@
             txt_titulo.Size = new Size(146, 23);
             txt_titulo.TabIndex = 4;
             // 
-            // txt_autor
-            // 
-            txt_autor.Location = new Point(475, 41);
-            txt_autor.Name = "txt_autor";
-            txt_autor.Size = new Size(146, 23);
-            txt_autor.TabIndex = 5;
-            // 
-            // txt_movimiento
-            // 
-            txt_movimiento.Location = new Point(475, 70);
-            txt_movimiento.Name = "txt_movimiento";
-            txt_movimiento.Size = new Size(146, 23);
-            txt_movimiento.TabIndex = 6;
-            // 
             // txt_precio
             // 
             txt_precio.Location = new Point(475, 99);
@@ -111,9 +96,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.imgNotFound;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(347, 332);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
@@ -132,7 +119,7 @@
             btn_modificar.Name = "btn_modificar";
             btn_modificar.Size = new Size(75, 23);
             btn_modificar.TabIndex = 10;
-            btn_modificar.Text = "Modificar";
+            btn_modificar.Text = "Cargar";
             btn_modificar.UseVisualStyleBackColor = true;
             // 
             // btn_cancelar
@@ -153,20 +140,30 @@
             btn_guardar.TabIndex = 12;
             btn_guardar.Text = "Guardar";
             btn_guardar.UseVisualStyleBackColor = true;
+            btn_guardar.Click += btn_guardar_Click;
             // 
             // cb_movimientos
             // 
             cb_movimientos.FormattingEnabled = true;
-            cb_movimientos.Location = new Point(472, 158);
+            cb_movimientos.Location = new Point(475, 70);
             cb_movimientos.Name = "cb_movimientos";
-            cb_movimientos.Size = new Size(149, 23);
+            cb_movimientos.Size = new Size(146, 23);
             cb_movimientos.TabIndex = 13;
+            // 
+            // cb_artistas
+            // 
+            cb_artistas.FormattingEnabled = true;
+            cb_artistas.Location = new Point(475, 41);
+            cb_artistas.Name = "cb_artistas";
+            cb_artistas.Size = new Size(146, 23);
+            cb_artistas.TabIndex = 14;
             // 
             // Obra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cb_artistas);
             Controls.Add(cb_movimientos);
             Controls.Add(btn_guardar);
             Controls.Add(btn_cancelar);
@@ -174,8 +171,6 @@
             Controls.Add(label5);
             Controls.Add(pictureBox1);
             Controls.Add(txt_precio);
-            Controls.Add(txt_movimiento);
-            Controls.Add(txt_autor);
             Controls.Add(txt_titulo);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -195,8 +190,6 @@
         private Label label3;
         private Label label4;
         private TextBox txt_titulo;
-        private TextBox txt_autor;
-        private TextBox txt_movimiento;
         private TextBox txt_precio;
         private PictureBox pictureBox1;
         private Label label5;
@@ -204,5 +197,6 @@
         private Button btn_cancelar;
         private Button btn_guardar;
         private ComboBox cb_movimientos;
+        private ComboBox cb_artistas;
     }
 }

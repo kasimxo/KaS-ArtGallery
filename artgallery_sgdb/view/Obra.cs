@@ -25,13 +25,15 @@ namespace artgallery_sgdb.view
         private int precio;
         private int id_obra;
         private Dictionary<String, Int64> listaMovimientos;
+        private Dictionary<String, Int64> listaArtistas;
 
         public Obra()
         {
             InitializeComponent();
         }
 
-        public Obra(int id_obra, String titulo, String imagen, int precio, String movimiento, String autor) {
+        public Obra(int id_obra, String titulo, String imagen, int precio, String movimiento, String autor)
+        {
             this.imagen = imagen;
             this.titulo = titulo;
             this.autor = autor;
@@ -39,6 +41,7 @@ namespace artgallery_sgdb.view
             this.precio = precio;
             this.id_obra = id_obra;
             listaMovimientos = new Dictionary<string, Int64>();
+            listaArtistas = new Dictionary<string, Int64>();
             InitializeComponent();
             actualizarView();
         }
@@ -49,11 +52,34 @@ namespace artgallery_sgdb.view
         private void actualizarView()
         {
             recuperarMovimientos();
+            recuperarArtistas();
             if (titulo != null) { txt_titulo.Text = titulo; }
-            if (autor != null) { txt_autor.Text = autor; }
-            if (movimiento != null) { txt_movimiento.Text = movimiento; }
+            if (autor != null) { }
+            if (movimiento != null) { }
             if (precio != null) { txt_precio.Text = precio.ToString(); }
             if (imagen != null) { }
+        }
+
+        private void recuperarArtistas()
+        {
+            try
+            {
+                string sqlQuery = "SELECT * FROM dbo.artistas;";
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connectionString);
+                SqlConnection con = new SqlConnection(connectionString);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listaArtistas.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
+                    cb_artistas.Items.Add(Convert.ToString(dr[1]));
+                }
+                cb_artistas.SelectedIndex = 0;
+                cb_artistas.SelectedIndex = cb_artistas.FindStringExact(autor);
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Ha surgido un error recuperando los artistas");
+            }
         }
 
         private void recuperarMovimientos()
@@ -65,17 +91,69 @@ namespace artgallery_sgdb.view
                 SqlConnection con = new SqlConnection(connectionString);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                foreach (DataRow dr in dt.Rows) {
+                foreach (DataRow dr in dt.Rows)
+                {
                     listaMovimientos.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
                     cb_movimientos.Items.Add(Convert.ToString(dr[1]));
                 }
+                cb_movimientos.SelectedIndex = 0;
+                cb_movimientos.SelectedIndex = cb_movimientos.FindStringExact(movimiento);
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show("Ha surgido un error recuperando los movimientos");
+            }
 
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void actualizarVariables()
+        {
+            this.titulo = txt_titulo.Text;
+            this.autor = cb_artistas.Text;
+            this.movimiento = cb_movimientos.Text;
+            long num; //variable temporal para almacenar ids
+            num = listaMovimientos[cb_movimientos.Text];
+            this.id_movimiento = (int) num;
+
+            listaArtistas.TryGetValue(autor, out num);
+            this.id_autor = (int)num;
+            Int32.TryParse(txt_precio.Text, out this.precio);
+            
+            /*
+            this.imagen;
+
+            */
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                actualizarVariables();
+                string sqlQuery = "UPDATE dbo.obras SET"
+                    +" titulo='"+titulo+"', imagen='"+imagen+"', precio="
+                    +precio+", id_artista="+id_autor+", id_movimiento="
+                    +id_movimiento+" WHERE id_obra="+id_obra+";";
+                
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand comm = new SqlCommand(sqlQuery, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                con.Open();
+                comm.ExecuteNonQuery();
+                comm.Dispose();
+                con.Close();
+                MessageBox.Show("Se han actualizado los datos correctamente");
+                Program.mw.recargarObras();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Ha surgido un error al guardar la información");
+                MessageBox.Show(ex.Message);
+            }
             this.Close();
         }
     }

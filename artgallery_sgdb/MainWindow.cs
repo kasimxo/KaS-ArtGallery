@@ -60,7 +60,10 @@ namespace artgallery_sgdb {
 
         }
 
-        private void btn_cargarObras(object sender, EventArgs e)
+        /// <summary>
+        /// Se utiliza para llamar al metodo de recargar obras desde otras clases
+        /// </summary>
+        public void recargarObras()
         {
             string sqlQuery = "SELECT * FROM dbo.view_obras;";
 
@@ -72,7 +75,7 @@ namespace artgallery_sgdb {
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                MessageBox.Show("Se han recuperado los datos correctamente");
+                //MessageBox.Show("Se han recuperado los datos correctamente");
 
 
 
@@ -81,7 +84,11 @@ namespace artgallery_sgdb {
             {
                 MessageBox.Show("Ha surgido un problema recuperando los datos");
             }
+        }
 
+        private void btn_cargarObras(object sender, EventArgs e)
+        {
+            recargarObras();
         }
 
         private void button2_Click(object sender, EventArgs e)
