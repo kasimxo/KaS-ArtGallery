@@ -38,16 +38,19 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            btn_visualizar = new Button();
             tabControl1 = new TabControl();
+            tabPage3 = new TabPage();
             tabPage1 = new TabPage();
+            btn_insertar = new Button();
+            btn_borrar = new Button();
+            btn_modificar = new Button();
             lbl2 = new Label();
             lbl1 = new Label();
             txt_box2 = new TextBox();
             txt_box1 = new TextBox();
             button2 = new Button();
             tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -61,16 +64,17 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(637, 179);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_ActivarOpciones;
             // 
-            // button1
+            // btn_visualizar
             // 
-            button1.Location = new Point(672, 221);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Visualizar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_visualizar.Location = new Point(672, 221);
+            btn_visualizar.Name = "btn_visualizar";
+            btn_visualizar.Size = new Size(75, 23);
+            btn_visualizar.TabIndex = 1;
+            btn_visualizar.Text = "Visualizar";
+            btn_visualizar.UseVisualStyleBackColor = true;
+            btn_visualizar.Click += button1_Click;
             // 
             // tabControl1
             // 
@@ -85,15 +89,27 @@
             tabControl1.Size = new Size(782, 429);
             tabControl1.TabIndex = 2;
             // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(774, 401);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Visualizador";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btn_insertar);
+            tabPage1.Controls.Add(btn_borrar);
+            tabPage1.Controls.Add(btn_modificar);
             tabPage1.Controls.Add(lbl2);
             tabPage1.Controls.Add(lbl1);
             tabPage1.Controls.Add(txt_box2);
             tabPage1.Controls.Add(txt_box1);
             tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(btn_visualizar);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -101,6 +117,35 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gestión inventario";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_insertar
+            // 
+            btn_insertar.Location = new Point(672, 308);
+            btn_insertar.Name = "btn_insertar";
+            btn_insertar.Size = new Size(75, 23);
+            btn_insertar.TabIndex = 9;
+            btn_insertar.Text = "Insertar";
+            btn_insertar.UseVisualStyleBackColor = true;
+            // 
+            // btn_borrar
+            // 
+            btn_borrar.Enabled = false;
+            btn_borrar.Location = new Point(672, 279);
+            btn_borrar.Name = "btn_borrar";
+            btn_borrar.Size = new Size(75, 23);
+            btn_borrar.TabIndex = 8;
+            btn_borrar.Text = "Borrar";
+            btn_borrar.UseVisualStyleBackColor = true;
+            // 
+            // btn_modificar
+            // 
+            btn_modificar.Enabled = false;
+            btn_modificar.Location = new Point(672, 250);
+            btn_modificar.Name = "btn_modificar";
+            btn_modificar.Size = new Size(75, 23);
+            btn_modificar.TabIndex = 7;
+            btn_modificar.Text = "Modificar";
+            btn_modificar.UseVisualStyleBackColor = true;
             // 
             // lbl2
             // 
@@ -154,15 +199,6 @@
             tabPage2.Text = "Informes";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(774, 401);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Visualizador";
-            tabPage3.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,7 +219,7 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button btn_visualizar;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
@@ -193,5 +229,8 @@
         private Label lbl1;
         private Label lbl2;
         private TabPage tabPage3;
+        private Button btn_insertar;
+        private Button btn_borrar;
+        private Button btn_modificar;
     }
 }
