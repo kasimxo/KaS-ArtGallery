@@ -35,7 +35,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             dataGridView1 = new DataGridView();
             button1 = new Button();
             tabControl1 = new TabControl();
@@ -46,6 +47,7 @@
             txt_box1 = new TextBox();
             button2 = new Button();
             tabPage2 = new TabPage();
+            tabPage3 = new TabPage();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -73,6 +75,7 @@
             // tabControl1
             // 
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Location = new Point(9, 9);
@@ -96,7 +99,7 @@
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(774, 401);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Tabla libros";
+            tabPage1.Text = "Gestión inventario";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // lbl2
@@ -146,19 +149,28 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(768, 367);
+            tabPage2.Size = new Size(774, 401);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Informes";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(774, 401);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Visualizador";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "Form1";
+            Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -180,5 +192,6 @@
         private TextBox txt_box2;
         private Label lbl1;
         private Label lbl2;
+        private TabPage tabPage3;
     }
 }
