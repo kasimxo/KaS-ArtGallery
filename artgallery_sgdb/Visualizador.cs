@@ -73,7 +73,7 @@ namespace artgallery_sgdb
 
         private void primeraCarga()
         {
-            string sqlQuery = "SELECT titulo, autor, movimiento FROM dbo.view_obras;";
+            string sqlQuery = "SELECT titulo AS 'Título', autor AS 'Autor', movimiento AS 'Movimiento' FROM dbo.view_obras;";
 
             try
             {
@@ -82,10 +82,6 @@ namespace artgallery_sgdb
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
-
-                //MessageBox.Show("Se han recuperado los datos correctamente");
-
-
 
             }
             catch (Exception ex)
@@ -143,7 +139,7 @@ namespace artgallery_sgdb
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            string sqlQuery = "SELECT titulo, autor, movimiento FROM dbo.view_obras WHERE titulo LIKE '%" +
+            string sqlQuery = "SELECT titulo AS 'Título', autor AS 'Autor', movimiento AS 'Movimiento' FROM dbo.view_obras WHERE titulo LIKE '%" +
                 txt_titulo.Text + "%' AND autor LIKE '%" + cb_artistas.Text + "%' AND movimiento LIKE '%" + cb_movimientos.Text + "%';";
 
             try
@@ -167,6 +163,10 @@ namespace artgallery_sgdb
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            labelautor.Visible = true;
+            labelprecio.Visible = true;
+            labelmovimiento.Visible = true;
+            labeltitulo.Visible = true;
             verObra();
         }
     }

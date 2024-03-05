@@ -41,13 +41,13 @@
             btn_buscar = new Button();
             img_obra = new PictureBox();
             lbl_precio = new Label();
-            label5 = new Label();
+            labelprecio = new Label();
             lbl_movimiento = new Label();
             lbl_autor = new Label();
             lbl_titulo = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
+            labelmovimiento = new Label();
+            labelautor = new Label();
+            labeltitulo = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)img_obra).BeginInit();
             SuspendLayout();
@@ -131,12 +131,12 @@
             // 
             // btn_buscar
             // 
-            btn_buscar.Location = new Point(13, 62);
+            btn_buscar.Location = new Point(654, 28);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(75, 23);
             btn_buscar.TabIndex = 8;
             btn_buscar.Text = "Buscar";
-            toolTip1.SetToolTip(btn_buscar, "Buscar");
+            toolTip1.SetToolTip(btn_buscar, "Boton para buscar resultados");
             btn_buscar.UseVisualStyleBackColor = true;
             btn_buscar.Click += btn_buscar_Click;
             // 
@@ -158,15 +158,16 @@
             lbl_precio.TabIndex = 27;
             toolTip1.SetToolTip(lbl_precio, "Precio de la obra seleccionada");
             // 
-            // label5
+            // labelprecio
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(651, 309);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 15);
-            label5.TabIndex = 26;
-            label5.Text = "Precio:";
-            toolTip1.SetToolTip(label5, "Precio");
+            labelprecio.AutoSize = true;
+            labelprecio.Location = new Point(651, 309);
+            labelprecio.Name = "labelprecio";
+            labelprecio.Size = new Size(43, 15);
+            labelprecio.TabIndex = 26;
+            labelprecio.Text = "Precio:";
+            toolTip1.SetToolTip(labelprecio, "Precio");
+            labelprecio.Visible = false;
             // 
             // lbl_movimiento
             // 
@@ -183,7 +184,6 @@
             lbl_autor.Name = "lbl_autor";
             lbl_autor.Size = new Size(164, 49);
             lbl_autor.TabIndex = 24;
-            lbl_autor.TextAlign = ContentAlignment.MiddleCenter;
             toolTip1.SetToolTip(lbl_autor, "Autor de la obra seleccionada");
             // 
             // lbl_titulo
@@ -194,35 +194,38 @@
             lbl_titulo.TabIndex = 23;
             toolTip1.SetToolTip(lbl_titulo, "Título de la obra seleccionada");
             // 
-            // label6
+            // labelmovimiento
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(654, 222);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 15);
-            label6.TabIndex = 22;
-            label6.Text = "Movimiento:";
-            toolTip1.SetToolTip(label6, "Movimiento");
+            labelmovimiento.AutoSize = true;
+            labelmovimiento.Location = new Point(654, 222);
+            labelmovimiento.Name = "labelmovimiento";
+            labelmovimiento.Size = new Size(75, 15);
+            labelmovimiento.TabIndex = 22;
+            labelmovimiento.Text = "Movimiento:";
+            toolTip1.SetToolTip(labelmovimiento, "Movimiento");
+            labelmovimiento.Visible = false;
             // 
-            // label7
+            // labelautor
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(654, 148);
-            label7.Name = "label7";
-            label7.Size = new Size(40, 15);
-            label7.TabIndex = 21;
-            label7.Text = "Autor:";
-            toolTip1.SetToolTip(label7, "Autor");
+            labelautor.AutoSize = true;
+            labelautor.Location = new Point(654, 148);
+            labelautor.Name = "labelautor";
+            labelautor.Size = new Size(40, 15);
+            labelautor.TabIndex = 21;
+            labelautor.Text = "Autor:";
+            toolTip1.SetToolTip(labelautor, "Autor");
+            labelautor.Visible = false;
             // 
-            // label8
+            // labeltitulo
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(654, 80);
-            label8.Name = "label8";
-            label8.Size = new Size(40, 15);
-            label8.TabIndex = 20;
-            label8.Text = "Título:";
-            toolTip1.SetToolTip(label8, "Título");
+            labeltitulo.AutoSize = true;
+            labeltitulo.Location = new Point(654, 80);
+            labeltitulo.Name = "labeltitulo";
+            labeltitulo.Size = new Size(40, 15);
+            labeltitulo.TabIndex = 20;
+            labeltitulo.Text = "Título:";
+            toolTip1.SetToolTip(labeltitulo, "Título");
+            labeltitulo.Visible = false;
             // 
             // Visualizador
             // 
@@ -232,13 +235,13 @@
             ClientSize = new Size(830, 375);
             Controls.Add(img_obra);
             Controls.Add(lbl_precio);
-            Controls.Add(label5);
+            Controls.Add(labelprecio);
             Controls.Add(lbl_movimiento);
             Controls.Add(lbl_autor);
             Controls.Add(lbl_titulo);
-            Controls.Add(label6);
-            Controls.Add(label7);
-            Controls.Add(label8);
+            Controls.Add(labelmovimiento);
+            Controls.Add(labelautor);
+            Controls.Add(labeltitulo);
             Controls.Add(btn_buscar);
             Controls.Add(dataGridView1);
             Controls.Add(txt_titulo);
@@ -270,12 +273,12 @@
         private Button btn_buscar;
         private PictureBox img_obra;
         private Label lbl_precio;
-        private Label label5;
+        private Label labelprecio;
         private Label lbl_movimiento;
         private Label lbl_autor;
         private Label lbl_titulo;
-        private Label label6;
-        private Label label7;
-        private Label label8;
+        private Label labelmovimiento;
+        private Label labelautor;
+        private Label labeltitulo;
     }
 }
