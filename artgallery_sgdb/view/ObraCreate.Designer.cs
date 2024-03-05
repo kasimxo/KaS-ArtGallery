@@ -41,6 +41,8 @@
             btn_guardar = new Button();
             cb_movimientos = new ComboBox();
             cb_artistas = new ComboBox();
+            btn_nuevo_autor = new Button();
+            btn_nuevo_movimiento = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -158,11 +160,33 @@
             cb_artistas.Size = new Size(146, 23);
             cb_artistas.TabIndex = 14;
             // 
-            // Obra
+            // btn_nuevo_autor
+            // 
+            btn_nuevo_autor.Location = new Point(643, 41);
+            btn_nuevo_autor.Name = "btn_nuevo_autor";
+            btn_nuevo_autor.Size = new Size(145, 23);
+            btn_nuevo_autor.TabIndex = 15;
+            btn_nuevo_autor.Text = "Nuevo autor";
+            btn_nuevo_autor.UseVisualStyleBackColor = true;
+            btn_nuevo_autor.Click += btn_nuevo_autor_Click;
+            // 
+            // btn_nuevo_movimiento
+            // 
+            btn_nuevo_movimiento.Location = new Point(643, 70);
+            btn_nuevo_movimiento.Name = "btn_nuevo_movimiento";
+            btn_nuevo_movimiento.Size = new Size(145, 23);
+            btn_nuevo_movimiento.TabIndex = 16;
+            btn_nuevo_movimiento.Text = "Nuevo movimiento";
+            btn_nuevo_movimiento.UseVisualStyleBackColor = true;
+            btn_nuevo_movimiento.Click += btn_nuevo_movimiento_Click;
+            // 
+            // ObraCreate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_nuevo_movimiento);
+            Controls.Add(btn_nuevo_autor);
             Controls.Add(cb_artistas);
             Controls.Add(cb_movimientos);
             Controls.Add(btn_guardar);
@@ -176,7 +200,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Obra";
+            Name = "ObraCreate";
             Text = "Obra";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -198,5 +222,7 @@
         private Button btn_guardar;
         private ComboBox cb_movimientos;
         private ComboBox cb_artistas;
+        private Button btn_nuevo_autor;
+        private Button btn_nuevo_movimiento;
     }
 }

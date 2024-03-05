@@ -49,7 +49,7 @@ namespace artgallery_sgdb.view
             if (imagen != null) { }
         }
 
-        private void recuperarArtistas()
+        public void recuperarArtistas()
         {
             try
             {
@@ -58,6 +58,10 @@ namespace artgallery_sgdb.view
                 SqlConnection con = new SqlConnection(connectionString);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
+
+                listaArtistas.Clear();
+                cb_artistas.Items.Clear();
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     listaArtistas.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
@@ -66,12 +70,13 @@ namespace artgallery_sgdb.view
                 cb_artistas.SelectedIndex = 0;
                 cb_artistas.SelectedIndex = cb_artistas.FindStringExact(autor);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error recuperando los artistas");
             }
         }
 
-        private void recuperarMovimientos()
+        public void recuperarMovimientos()
         {
             try
             {
@@ -80,6 +85,10 @@ namespace artgallery_sgdb.view
                 SqlConnection con = new SqlConnection(connectionString);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
+
+                listaMovimientos.Clear(); //Limpiamos el diccionario primero para evitar duplicados
+                cb_movimientos.Items.Clear();
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     listaMovimientos.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
@@ -88,7 +97,8 @@ namespace artgallery_sgdb.view
                 cb_movimientos.SelectedIndex = 0;
                 cb_movimientos.SelectedIndex = cb_movimientos.FindStringExact(movimiento);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error recuperando los movimientos");
             }
 
@@ -106,12 +116,12 @@ namespace artgallery_sgdb.view
             this.movimiento = cb_movimientos.Text;
             long num; //variable temporal para almacenar ids
             num = listaMovimientos[cb_movimientos.Text];
-            this.id_movimiento = (int) num;
+            this.id_movimiento = (int)num;
 
             listaArtistas.TryGetValue(autor, out num);
             this.id_autor = (int)num;
             Int32.TryParse(txt_precio.Text, out this.precio);
-            
+
             /*
             this.imagen;
 
@@ -124,9 +134,9 @@ namespace artgallery_sgdb.view
             {
                 actualizarVariables();
                 string sqlQuery = "INSERT INTO dbo.obras (titulo, imagen, precio, id_artista, vendida, id_movimiento) VALUES('"
-                    +titulo+"', '"+imagen+"', "+precio+", "+id_autor+", 0, "
-                    +id_movimiento+");";
-                
+                    + titulo + "', '" + imagen + "', " + precio + ", " + id_autor + ", 0, "
+                    + id_movimiento + ");";
+
                 SqlConnection con = new SqlConnection(connectionString);
 
                 SqlCommand comm = new SqlCommand(sqlQuery, con);
@@ -138,11 +148,25 @@ namespace artgallery_sgdb.view
                 MessageBox.Show("Se han actualizado los datos correctamente");
                 Program.mw.recargarObras();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error al guardar la información");
                 MessageBox.Show(ex.Message);
             }
             this.Close();
+        }
+
+        private void btn_nuevo_autor_Click(object sender, EventArgs e)
+        {
+            NuevoAutor nuevoAutor = new NuevoAutor(this);
+            nuevoAutor.Show();
+
+        }
+
+        private void btn_nuevo_movimiento_Click(object sender, EventArgs e)
+        {
+            NuevoMovimiento nuevoMovimiento = new NuevoMovimiento(this);
+            nuevoMovimiento.Show();
         }
     }
 }

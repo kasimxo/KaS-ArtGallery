@@ -118,3 +118,5 @@ C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.Borrar.resources
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.ObraCreate.resources
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.ObraUpdate.resources
+C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.NuevoAutor.resources
+C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.NuevoMovimiento.resources

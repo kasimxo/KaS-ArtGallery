@@ -10,6 +10,12 @@
     <Compile Update="view\Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="view\NuevoAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="view\NuevoMovimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="view\ObraUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
