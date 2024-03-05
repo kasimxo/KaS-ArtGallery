@@ -153,10 +153,19 @@ namespace artgallery_sgdb {
 
         private void btn_borrar_Click(object sender, EventArgs e)
         {
-            int id_obra = obtenerIdSeleccionado();
+            int index = dataGridView1.CurrentCell.RowIndex;
 
-            MessageBox.Show(id_obra.ToString());
-            //int id_obra = dataGridView1.GetChildAtPoint(new Point(index, 0));
+            int id_obra = Int32.Parse(dataGridView1.Rows[index].Cells[0].Value.ToString());
+            String titulo = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            String imagen = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            int precio = Int32.Parse(dataGridView1.Rows[index].Cells[3].Value.ToString());
+            String movimiento = dataGridView1.Rows[index].Cells[4].Value.ToString();
+            String autor = dataGridView1.Rows[index].Cells[5].Value.ToString();
+
+
+            Borrar borrar = new Borrar(id_obra, titulo, imagen, precio, movimiento, autor);
+
+            borrar.Show();
         }
 
         /// <summary>

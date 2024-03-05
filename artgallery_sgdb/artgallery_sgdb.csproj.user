@@ -4,10 +4,13 @@
     <Compile Update="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="view\Borrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="view\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="view\Obra.cs">
+    <Compile Update="view\ObraUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="view\RegForm.cs">

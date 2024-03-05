@@ -1,6 +1,6 @@
 ﻿namespace artgallery_sgdb.view
 {
-    partial class Obra
+    partial class ObraUpdate
     {
         /// <summary>
         /// Required designer variable.

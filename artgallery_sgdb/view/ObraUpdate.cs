@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace artgallery_sgdb.view
 {
-    public partial class Obra : Form
+    public partial class ObraUpdate : Form
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
 
@@ -27,12 +27,12 @@ namespace artgallery_sgdb.view
         private Dictionary<String, Int64> listaMovimientos;
         private Dictionary<String, Int64> listaArtistas;
 
-        public Obra()
+        public ObraUpdate()
         {
             InitializeComponent();
         }
 
-        public Obra(int id_obra, String titulo, String imagen, int precio, String movimiento, String autor)
+        public ObraUpdate(int id_obra, String titulo, String imagen, int precio, String movimiento, String autor)
         {
             this.imagen = imagen;
             this.titulo = titulo;
