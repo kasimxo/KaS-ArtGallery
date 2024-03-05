@@ -53,7 +53,8 @@ namespace artgallery_sgdb {
                     img_obra.Image = artgallery_sgdb.Properties.Resources.imgNotFound;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un problema visualizando los datos");
                 Debug.Write(ex.Message);
             }
@@ -187,7 +188,7 @@ namespace artgallery_sgdb {
         private void btn_modificar_Click(object sender, EventArgs e)
         {
 
-             
+
 
             int index = dataGridView1.CurrentCell.RowIndex;
 
@@ -198,8 +199,14 @@ namespace artgallery_sgdb {
             String movimiento = dataGridView1.Rows[index].Cells[4].Value.ToString();
             String autor = dataGridView1.Rows[index].Cells[5].Value.ToString();
 
-            Obra obra = new Obra(id_obra, titulo, imagen, precio, movimiento, autor);
+            ObraUpdate obra = new ObraUpdate(id_obra, titulo, imagen, precio, movimiento, autor);
             obra.Show();
+        }
+
+        private void btn_insertar_Click(object sender, EventArgs e)
+        {
+            ObraCreate obraCreate = new ObraCreate();
+            obraCreate.Show();
         }
     }
 }

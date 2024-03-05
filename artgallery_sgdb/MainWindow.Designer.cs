@@ -238,6 +238,7 @@
             btn_insertar.TabIndex = 9;
             btn_insertar.Text = "Insertar";
             btn_insertar.UseVisualStyleBackColor = true;
+            btn_insertar.Click += btn_insertar_Click;
             // 
             // btn_borrar
             // 
