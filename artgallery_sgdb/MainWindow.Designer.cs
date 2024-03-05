@@ -55,11 +55,6 @@
             btn_insertar = new Button();
             btn_borrar = new Button();
             btn_modificar = new Button();
-            lbl2 = new Label();
-            lbl1 = new Label();
-            txt_box2 = new TextBox();
-            txt_box1 = new TextBox();
-            button2 = new Button();
             tabPage2 = new TabPage();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
@@ -73,14 +68,14 @@
             dataGridView1.Location = new Point(6, 210);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(637, 185);
+            dataGridView1.Size = new Size(681, 185);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_ActivarOpciones;
             // 
             // btn_visualizar
             // 
             btn_visualizar.Enabled = false;
-            btn_visualizar.Location = new Point(672, 221);
+            btn_visualizar.Location = new Point(693, 239);
             btn_visualizar.Name = "btn_visualizar";
             btn_visualizar.Size = new Size(75, 23);
             btn_visualizar.TabIndex = 1;
@@ -125,11 +120,6 @@
             tabPage1.Controls.Add(btn_insertar);
             tabPage1.Controls.Add(btn_borrar);
             tabPage1.Controls.Add(btn_modificar);
-            tabPage1.Controls.Add(lbl2);
-            tabPage1.Controls.Add(lbl1);
-            tabPage1.Controls.Add(txt_box2);
-            tabPage1.Controls.Add(txt_box1);
-            tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(dataGridView1);
             tabPage1.Controls.Add(btn_visualizar);
             tabPage1.Location = new Point(4, 24);
@@ -153,7 +143,7 @@
             // lbl_precio
             // 
             lbl_precio.AutoSize = true;
-            lbl_precio.Location = new Point(340, 167);
+            lbl_precio.Location = new Point(362, 140);
             lbl_precio.Name = "lbl_precio";
             lbl_precio.Size = new Size(0, 15);
             lbl_precio.TabIndex = 18;
@@ -161,7 +151,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(252, 167);
+            label4.Location = new Point(274, 140);
             label4.Name = "label4";
             label4.Size = new Size(43, 15);
             label4.TabIndex = 17;
@@ -169,7 +159,7 @@
             // 
             // btn_buscar
             // 
-            btn_buscar.Location = new Point(672, 181);
+            btn_buscar.Location = new Point(693, 210);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(75, 23);
             btn_buscar.TabIndex = 16;
@@ -180,7 +170,7 @@
             // lbl_movimiento
             // 
             lbl_movimiento.AutoSize = true;
-            lbl_movimiento.Location = new Point(340, 152);
+            lbl_movimiento.Location = new Point(362, 100);
             lbl_movimiento.Name = "lbl_movimiento";
             lbl_movimiento.Size = new Size(0, 15);
             lbl_movimiento.TabIndex = 15;
@@ -189,7 +179,7 @@
             // 
             lbl_autor.AutoSize = true;
             lbl_autor.ImageAlign = ContentAlignment.TopLeft;
-            lbl_autor.Location = new Point(340, 137);
+            lbl_autor.Location = new Point(362, 59);
             lbl_autor.Name = "lbl_autor";
             lbl_autor.Size = new Size(0, 15);
             lbl_autor.TabIndex = 14;
@@ -198,7 +188,7 @@
             // lbl_titulo
             // 
             lbl_titulo.AutoSize = true;
-            lbl_titulo.Location = new Point(340, 122);
+            lbl_titulo.Location = new Point(362, 21);
             lbl_titulo.Name = "lbl_titulo";
             lbl_titulo.Size = new Size(0, 15);
             lbl_titulo.TabIndex = 13;
@@ -206,7 +196,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(252, 152);
+            label3.Location = new Point(274, 100);
             label3.Name = "label3";
             label3.Size = new Size(75, 15);
             label3.TabIndex = 12;
@@ -215,7 +205,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(252, 137);
+            label2.Location = new Point(274, 59);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 11;
@@ -224,7 +214,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(252, 122);
+            label1.Location = new Point(274, 21);
             label1.Name = "label1";
             label1.Size = new Size(40, 15);
             label1.TabIndex = 10;
@@ -232,7 +222,7 @@
             // 
             // btn_insertar
             // 
-            btn_insertar.Location = new Point(672, 308);
+            btn_insertar.Location = new Point(693, 326);
             btn_insertar.Name = "btn_insertar";
             btn_insertar.Size = new Size(75, 23);
             btn_insertar.TabIndex = 9;
@@ -243,7 +233,7 @@
             // btn_borrar
             // 
             btn_borrar.Enabled = false;
-            btn_borrar.Location = new Point(672, 279);
+            btn_borrar.Location = new Point(693, 297);
             btn_borrar.Name = "btn_borrar";
             btn_borrar.Size = new Size(75, 23);
             btn_borrar.TabIndex = 8;
@@ -254,55 +244,13 @@
             // btn_modificar
             // 
             btn_modificar.Enabled = false;
-            btn_modificar.Location = new Point(672, 250);
+            btn_modificar.Location = new Point(693, 268);
             btn_modificar.Name = "btn_modificar";
             btn_modificar.Size = new Size(75, 23);
             btn_modificar.TabIndex = 7;
             btn_modificar.Text = "Modificar";
             btn_modificar.UseVisualStyleBackColor = true;
             btn_modificar.Click += btn_modificar_Click;
-            // 
-            // lbl2
-            // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(339, 77);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(33, 15);
-            lbl2.TabIndex = 6;
-            lbl2.Text = "Cosa";
-            // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(339, 43);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(51, 15);
-            lbl1.TabIndex = 5;
-            lbl1.Text = "Nombre";
-            // 
-            // txt_box2
-            // 
-            txt_box2.Location = new Point(396, 69);
-            txt_box2.Name = "txt_box2";
-            txt_box2.Size = new Size(372, 23);
-            txt_box2.TabIndex = 4;
-            // 
-            // txt_box1
-            // 
-            txt_box1.Location = new Point(396, 35);
-            txt_box1.Name = "txt_box1";
-            txt_box1.Size = new Size(372, 23);
-            txt_box1.TabIndex = 3;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(696, 6);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "Insertar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // tabPage2
             // 
@@ -339,11 +287,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TextBox txt_box1;
-        private Button button2;
-        private TextBox txt_box2;
-        private Label lbl1;
-        private Label lbl2;
         private TabPage tabPage3;
         private Button btn_insertar;
         private Button btn_borrar;

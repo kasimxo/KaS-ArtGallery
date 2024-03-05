@@ -57,10 +57,12 @@ namespace artgallery_sgdb.view
             if (autor != null) { }
             if (movimiento != null) { }
             if (precio != null) { txt_precio.Text = precio.ToString(); }
-            if (imagen != null) { }
+            if (imagen != null && !imagen.Equals(" ") && imagen.Length>0) { 
+                picture.Image = Image.FromFile(".\\imagenes\\" + imagen);
+            }
         }
 
-        private void recuperarArtistas()
+        public void recuperarArtistas()
         {
             try
             {
@@ -69,6 +71,10 @@ namespace artgallery_sgdb.view
                 SqlConnection con = new SqlConnection(connectionString);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
+
+                listaArtistas.Clear();
+                cb_artistas.Items.Clear();
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     listaArtistas.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
@@ -77,12 +83,13 @@ namespace artgallery_sgdb.view
                 cb_artistas.SelectedIndex = 0;
                 cb_artistas.SelectedIndex = cb_artistas.FindStringExact(autor);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error recuperando los artistas");
             }
         }
 
-        private void recuperarMovimientos()
+        public void recuperarMovimientos()
         {
             try
             {
@@ -91,6 +98,10 @@ namespace artgallery_sgdb.view
                 SqlConnection con = new SqlConnection(connectionString);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
+
+                listaMovimientos.Clear();
+                cb_movimientos.Items.Clear();
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     listaMovimientos.Add(Convert.ToString(dr[1]), Convert.ToInt64(dr[0]));
@@ -99,7 +110,8 @@ namespace artgallery_sgdb.view
                 cb_movimientos.SelectedIndex = 0;
                 cb_movimientos.SelectedIndex = cb_movimientos.FindStringExact(movimiento);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error recuperando los movimientos");
             }
 
@@ -117,16 +129,12 @@ namespace artgallery_sgdb.view
             this.movimiento = cb_movimientos.Text;
             long num; //variable temporal para almacenar ids
             num = listaMovimientos[cb_movimientos.Text];
-            this.id_movimiento = (int) num;
+            this.id_movimiento = (int)num;
 
             listaArtistas.TryGetValue(autor, out num);
             this.id_autor = (int)num;
             Int32.TryParse(txt_precio.Text, out this.precio);
-            
-            /*
-            this.imagen;
 
-            */
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -135,10 +143,10 @@ namespace artgallery_sgdb.view
             {
                 actualizarVariables();
                 string sqlQuery = "UPDATE dbo.obras SET"
-                    +" titulo='"+titulo+"', imagen='"+imagen+"', precio="
-                    +precio+", id_artista="+id_autor+", id_movimiento="
-                    +id_movimiento+" WHERE id_obra="+id_obra+";";
-                
+                    + " titulo='" + titulo + "', imagen='" + imagen + "', precio="
+                    + precio + ", id_artista=" + id_autor + ", id_movimiento="
+                    + id_movimiento + " WHERE id_obra=" + id_obra + ";";
+
                 SqlConnection con = new SqlConnection(connectionString);
 
                 SqlCommand comm = new SqlCommand(sqlQuery, con);
@@ -150,11 +158,41 @@ namespace artgallery_sgdb.view
                 MessageBox.Show("Se han actualizado los datos correctamente");
                 Program.mw.recargarObras();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ha surgido un error al guardar la información");
                 MessageBox.Show(ex.Message);
             }
             this.Close();
+        }
+
+        private void btn_nuevo_autor_Click(object sender, EventArgs e)
+        {
+            NuevoAutor nuevoAutor = new NuevoAutor(this);
+            nuevoAutor.Show();
+        }
+
+        private void btn_nuevo_movimiento_Click(object sender, EventArgs e)
+        {
+            NuevoMovimiento nuevoMovimiento = new NuevoMovimiento(this);
+            nuevoMovimiento.Show();
+        }
+
+        private void btn_cargarImagen_Click(object sender, EventArgs e)
+        {
+            imagenChooser.Filter = "JPG|*.jpg|JPEG|*.jpeg|PNG|*.png";
+            imagenChooser.ShowDialog();
+            string filePath = imagenChooser.FileName;
+            string filename = imagenChooser.SafeFileName;
+
+            if (!Directory.Exists(".\\imagenes"))
+            {
+                Directory.CreateDirectory(".\\imagenes");
+            }
+
+            File.Copy(filePath, ".\\imagenes\\"+filename, true);
+            this.imagen = filename;
+            picture.Image = Image.FromFile(".\\imagenes\\"+filename);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace artgallery_sgdb {
 
                 if (rutaImagen != null && rutaImagen.Length > 1)
                 {
-                    img_obra.Image = Image.FromFile(rutaImagen);
+                    img_obra.Image = Image.FromFile(".\\imagenes\\"+rutaImagen);
                 }
                 else
                 {
@@ -92,49 +92,7 @@ namespace artgallery_sgdb {
             recargarObras();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            string sqlQuery = "INSERT INTO dbo.Obras (titulo, id_autor) VALUES (@titulo, @autor);";
-
-            try
-            {
-
-
-                SqlConnection connection = new SqlConnection(connectionString);
-
-                connection.Open();
-
-                SqlCommand cmd = new SqlCommand("insertarObra", connection);
-
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                /*
-                SqlCommand cmd = new SqlCommand(sqlQuery, connection);
-                */
-
-                var titulo = new SqlParameter("titulo", System.Data.SqlDbType.VarChar);
-                titulo.Value = txt_box1.Text;
-                cmd.Parameters.Add(titulo);
-
-                var autor = new SqlParameter("autor", System.Data.SqlDbType.Int);
-                autor.Value = txt_box2.Text;
-                cmd.Parameters.Add(autor);
-
-
-                cmd.ExecuteNonQuery();
-
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("kk");
-
-            }
-
-        }
-
+        
         private void dataGridView1_ActivarOpciones(object sender, DataGridViewCellEventArgs e)
         {
             //Comprobamos si el usuario ha seleccionado algo para habilitar los botones
@@ -149,6 +107,51 @@ namespace artgallery_sgdb {
                 btn_borrar.Enabled = false;
                 btn_modificar.Enabled = false;
                 btn_visualizar.Enabled = true;
+            }
+
+            verObra();
+        }
+
+        private void verObra()
+        {
+
+
+            string sqlQuery;
+            int id_obra = obtenerIdSeleccionado();
+            sqlQuery = "SELECT * FROM dbo.view_obras WHERE Id = " + id_obra.ToString() + ";";
+
+            try
+            {
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connectionString);
+                SqlConnection con = new SqlConnection(connectionString);
+
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                //Unicamente nos interesamos por el primer resultado
+                DataRow resultado = ds.Tables[0].Rows[0];
+                lbl_titulo.Text = resultado[1].ToString();
+                String rutaImagen = resultado[2].ToString();
+
+                lbl_precio.Text = resultado[3].ToString();
+                lbl_movimiento.Text = resultado[4].ToString();
+                lbl_autor.Text = resultado[5].ToString();
+
+                if (rutaImagen != null && rutaImagen.Length > 1)
+                {
+                    img_obra.Image = Image.FromFile(".\\imagenes\\" + rutaImagen);
+                }
+                else
+                {
+                    //Si no hay ninguna imagen, colocamos un icono de sin imagen
+                    img_obra.Image = artgallery_sgdb.Properties.Resources.imgNotFound;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha surgido un problema visualizando los datos");
+                Debug.Write(ex.Message);
             }
         }
 

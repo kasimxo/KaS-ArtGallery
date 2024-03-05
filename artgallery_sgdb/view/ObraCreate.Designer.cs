@@ -34,7 +34,7 @@
             label4 = new Label();
             txt_titulo = new TextBox();
             txt_precio = new TextBox();
-            pictureBox1 = new PictureBox();
+            picture = new PictureBox();
             label5 = new Label();
             btn_modificar = new Button();
             btn_cancelar = new Button();
@@ -43,7 +43,8 @@
             cb_artistas = new ComboBox();
             btn_nuevo_autor = new Button();
             btn_nuevo_movimiento = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            imagenChooser = new OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -96,15 +97,15 @@
             txt_precio.Size = new Size(146, 23);
             txt_precio.TabIndex = 7;
             // 
-            // pictureBox1
+            // picture
             // 
-            pictureBox1.Image = Properties.Resources.imgNotFound;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(347, 332);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
+            picture.Image = Properties.Resources.imgNotFound;
+            picture.Location = new Point(12, 12);
+            picture.Name = "picture";
+            picture.Size = new Size(347, 332);
+            picture.SizeMode = PictureBoxSizeMode.Zoom;
+            picture.TabIndex = 8;
+            picture.TabStop = false;
             // 
             // label5
             // 
@@ -123,6 +124,7 @@
             btn_modificar.TabIndex = 10;
             btn_modificar.Text = "Cargar";
             btn_modificar.UseVisualStyleBackColor = true;
+            btn_modificar.Click += btn_seleccionarImagen_Click;
             // 
             // btn_cancelar
             // 
@@ -180,6 +182,10 @@
             btn_nuevo_movimiento.UseVisualStyleBackColor = true;
             btn_nuevo_movimiento.Click += btn_nuevo_movimiento_Click;
             // 
+            // imagenChooser
+            // 
+            imagenChooser.FileName = "imagenChooser";
+            // 
             // ObraCreate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -193,7 +199,7 @@
             Controls.Add(btn_cancelar);
             Controls.Add(btn_modificar);
             Controls.Add(label5);
-            Controls.Add(pictureBox1);
+            Controls.Add(picture);
             Controls.Add(txt_precio);
             Controls.Add(txt_titulo);
             Controls.Add(label4);
@@ -202,7 +208,7 @@
             Controls.Add(label1);
             Name = "ObraCreate";
             Text = "Obra";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picture).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -215,7 +221,7 @@
         private Label label4;
         private TextBox txt_titulo;
         private TextBox txt_precio;
-        private PictureBox pictureBox1;
+        private PictureBox picture;
         private Label label5;
         private Button btn_modificar;
         private Button btn_cancelar;
@@ -224,5 +230,6 @@
         private ComboBox cb_artistas;
         private Button btn_nuevo_autor;
         private Button btn_nuevo_movimiento;
+        private OpenFileDialog imagenChooser;
     }
 }

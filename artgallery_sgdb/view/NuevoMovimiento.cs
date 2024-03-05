@@ -16,9 +16,16 @@ namespace artgallery_sgdb.view
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
         private ObraCreate oc;
+        private ObraUpdate ou;
 
         public NuevoMovimiento()
         {
+            InitializeComponent();
+        }
+
+        public NuevoMovimiento(ObraUpdate ou)
+        {
+            this.ou = ou;
             InitializeComponent();
         }
 

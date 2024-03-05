@@ -46,7 +46,10 @@ namespace artgallery_sgdb.view
             if (autor != null) { }
             if (movimiento != null) { }
             if (precio != null) { txt_precio.Text = precio.ToString(); }
-            if (imagen != null) { }
+            if (imagen != null && !imagen.Equals(" ") && imagen.Length > 0)
+            {
+                picture.Image = Image.FromFile(".\\imagenes\\" + imagen);
+            }
         }
 
         public void recuperarArtistas()
@@ -122,10 +125,6 @@ namespace artgallery_sgdb.view
             this.id_autor = (int)num;
             Int32.TryParse(txt_precio.Text, out this.precio);
 
-            /*
-            this.imagen;
-
-            */
         }
 
         private void btn_insertar_Click(object sender, EventArgs e)
@@ -167,6 +166,23 @@ namespace artgallery_sgdb.view
         {
             NuevoMovimiento nuevoMovimiento = new NuevoMovimiento(this);
             nuevoMovimiento.Show();
+        }
+
+        private void btn_seleccionarImagen_Click(object sender, EventArgs e)
+        {
+            imagenChooser.Filter = "JPG|*.jpg|JPEG|*.jpeg|PNG|*.png";
+            imagenChooser.ShowDialog();
+            string filePath = imagenChooser.FileName;
+            string filename = imagenChooser.SafeFileName;
+
+            if (!Directory.Exists(".\\imagenes"))
+            {
+                Directory.CreateDirectory(".\\imagenes");
+            }
+
+            File.Copy(filePath, ".\\imagenes\\" + filename, true);
+            this.imagen = filename;
+            picture.Image = Image.FromFile(".\\imagenes\\" + filename);
         }
     }
 }

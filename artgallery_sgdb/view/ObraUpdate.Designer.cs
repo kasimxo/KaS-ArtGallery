@@ -34,14 +34,19 @@
             label4 = new Label();
             txt_titulo = new TextBox();
             txt_precio = new TextBox();
-            pictureBox1 = new PictureBox();
+            picture = new PictureBox();
             label5 = new Label();
             btn_modificar = new Button();
             btn_cancelar = new Button();
             btn_guardar = new Button();
             cb_movimientos = new ComboBox();
             cb_artistas = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            btn_nuevo_movimiento = new Button();
+            btn_nuevo_autor = new Button();
+            imagenChooser = new OpenFileDialog();
+            fileSystemWatcher1 = new FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -94,15 +99,15 @@
             txt_precio.Size = new Size(146, 23);
             txt_precio.TabIndex = 7;
             // 
-            // pictureBox1
+            // picture
             // 
-            pictureBox1.Image = Properties.Resources.imgNotFound;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(347, 332);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
+            picture.Image = Properties.Resources.imgNotFound;
+            picture.Location = new Point(12, 12);
+            picture.Name = "picture";
+            picture.Size = new Size(347, 332);
+            picture.SizeMode = PictureBoxSizeMode.Zoom;
+            picture.TabIndex = 8;
+            picture.TabStop = false;
             // 
             // label5
             // 
@@ -121,6 +126,7 @@
             btn_modificar.TabIndex = 10;
             btn_modificar.Text = "Cargar";
             btn_modificar.UseVisualStyleBackColor = true;
+            btn_modificar.Click += btn_cargarImagen_Click;
             // 
             // btn_cancelar
             // 
@@ -158,27 +164,59 @@
             cb_artistas.Size = new Size(146, 23);
             cb_artistas.TabIndex = 14;
             // 
-            // Obra
+            // btn_nuevo_movimiento
+            // 
+            btn_nuevo_movimiento.Location = new Point(643, 69);
+            btn_nuevo_movimiento.Name = "btn_nuevo_movimiento";
+            btn_nuevo_movimiento.Size = new Size(145, 23);
+            btn_nuevo_movimiento.TabIndex = 18;
+            btn_nuevo_movimiento.Text = "Nuevo movimiento";
+            btn_nuevo_movimiento.UseVisualStyleBackColor = true;
+            btn_nuevo_movimiento.Click += btn_nuevo_movimiento_Click;
+            // 
+            // btn_nuevo_autor
+            // 
+            btn_nuevo_autor.Location = new Point(643, 40);
+            btn_nuevo_autor.Name = "btn_nuevo_autor";
+            btn_nuevo_autor.Size = new Size(145, 23);
+            btn_nuevo_autor.TabIndex = 17;
+            btn_nuevo_autor.Text = "Nuevo autor";
+            btn_nuevo_autor.UseVisualStyleBackColor = true;
+            btn_nuevo_autor.Click += btn_nuevo_autor_Click;
+            // 
+            // imagenChooser
+            // 
+            imagenChooser.FileName = "imagenChooser";
+            // 
+            // fileSystemWatcher1
+            // 
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // ObraUpdate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_nuevo_movimiento);
+            Controls.Add(btn_nuevo_autor);
             Controls.Add(cb_artistas);
             Controls.Add(cb_movimientos);
             Controls.Add(btn_guardar);
             Controls.Add(btn_cancelar);
             Controls.Add(btn_modificar);
             Controls.Add(label5);
-            Controls.Add(pictureBox1);
+            Controls.Add(picture);
             Controls.Add(txt_precio);
             Controls.Add(txt_titulo);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Obra";
+            Name = "ObraUpdate";
             Text = "Obra";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,12 +229,16 @@
         private Label label4;
         private TextBox txt_titulo;
         private TextBox txt_precio;
-        private PictureBox pictureBox1;
+        private PictureBox picture;
         private Label label5;
         private Button btn_modificar;
         private Button btn_cancelar;
         private Button btn_guardar;
         private ComboBox cb_movimientos;
         private ComboBox cb_artistas;
+        private Button btn_nuevo_movimiento;
+        private Button btn_nuevo_autor;
+        private OpenFileDialog imagenChooser;
+        private FileSystemWatcher fileSystemWatcher1;
     }
 }
