@@ -8,6 +8,7 @@ namespace artgallery_sgdb {
 
         public static Login ventana;
         public static MainWindow mw;
+        public static Visualizador vis;
 
         /// <summary>
         ///  The main entry point for the application.

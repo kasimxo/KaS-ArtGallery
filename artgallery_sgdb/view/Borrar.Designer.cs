@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btn_borrar = new Button();
             btn_cancelar = new Button();
             lbl_confirmacion = new Label();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // btn_borrar
@@ -40,6 +42,7 @@
             btn_borrar.Size = new Size(75, 23);
             btn_borrar.TabIndex = 0;
             btn_borrar.Text = "Borrar";
+            toolTip1.SetToolTip(btn_borrar, "Borrar obra");
             btn_borrar.UseVisualStyleBackColor = true;
             btn_borrar.Click += btn_borrar_Click;
             // 
@@ -50,6 +53,7 @@
             btn_cancelar.Size = new Size(75, 23);
             btn_cancelar.TabIndex = 1;
             btn_cancelar.Text = "Cancelar";
+            toolTip1.SetToolTip(btn_cancelar, "Cancelar");
             btn_cancelar.UseVisualStyleBackColor = true;
             btn_cancelar.Click += btn_cancelar_Click;
             // 
@@ -60,6 +64,7 @@
             lbl_confirmacion.Size = new Size(377, 157);
             lbl_confirmacion.TabIndex = 2;
             lbl_confirmacion.Text = "¿Está seguro ?";
+            toolTip1.SetToolTip(lbl_confirmacion, "¿Seguro que quiere borrar la obra?");
             // 
             // Borrar
             // 
@@ -79,5 +84,6 @@
         private Button btn_borrar;
         private Button btn_cancelar;
         private Label lbl_confirmacion;
+        private ToolTip toolTip1;
     }
 }

@@ -25,5 +25,8 @@
     <Compile Update="UserControls\IconosDeVentana.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Visualizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

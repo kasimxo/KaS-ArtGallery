@@ -100,13 +100,11 @@ namespace artgallery_sgdb {
             {
                 btn_borrar.Enabled = true;
                 btn_modificar.Enabled = true;
-                btn_visualizar.Enabled = true;
             }
             else
             {
                 btn_borrar.Enabled = false;
                 btn_modificar.Enabled = false;
-                btn_visualizar.Enabled = true;
             }
 
             verObra();

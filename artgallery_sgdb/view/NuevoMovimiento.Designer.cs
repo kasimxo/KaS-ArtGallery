@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             button2 = new Button();
             btn_cancelar = new Button();
             txt_nombre = new TextBox();
             label1 = new Label();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // button2
@@ -41,6 +43,7 @@
             button2.Size = new Size(75, 23);
             button2.TabIndex = 7;
             button2.Text = "Registrar";
+            toolTip1.SetToolTip(button2, "Registrar nuevo movimiento");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -51,6 +54,7 @@
             btn_cancelar.Size = new Size(75, 23);
             btn_cancelar.TabIndex = 6;
             btn_cancelar.Text = "Cancelar";
+            toolTip1.SetToolTip(btn_cancelar, "Cancelar");
             btn_cancelar.UseVisualStyleBackColor = true;
             btn_cancelar.Click += button1_Click;
             // 
@@ -60,6 +64,7 @@
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(200, 23);
             txt_nombre.TabIndex = 5;
+            toolTip1.SetToolTip(txt_nombre, "Introduce aquí el nombre del movimiento");
             // 
             // label1
             // 
@@ -69,6 +74,7 @@
             label1.Size = new Size(54, 15);
             label1.TabIndex = 4;
             label1.Text = "Nombre:";
+            toolTip1.SetToolTip(label1, "Nombre");
             // 
             // NuevoMovimiento
             // 
@@ -91,5 +97,6 @@
         private Button btn_cancelar;
         private TextBox txt_nombre;
         private Label label1;
+        private ToolTip toolTip1;
     }
 }

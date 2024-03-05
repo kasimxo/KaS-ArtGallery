@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             txt_nombre = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // label1
@@ -42,6 +44,7 @@
             label1.Size = new Size(54, 15);
             label1.TabIndex = 0;
             label1.Text = "Nombre:";
+            toolTip1.SetToolTip(label1, "Nombre");
             // 
             // txt_nombre
             // 
@@ -49,6 +52,7 @@
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(200, 23);
             txt_nombre.TabIndex = 1;
+            toolTip1.SetToolTip(txt_nombre, "Introduce aqui el nombre del artista");
             // 
             // button1
             // 
@@ -57,6 +61,7 @@
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
             button1.Text = "Cancelar";
+            toolTip1.SetToolTip(button1, "Cancelar");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -67,6 +72,7 @@
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
             button2.Text = "Registrar";
+            toolTip1.SetToolTip(button2, "Registrar nuevo artista");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -91,5 +97,6 @@
         private TextBox txt_nombre;
         private Button button1;
         private Button button2;
+        private ToolTip toolTip1;
     }
 }

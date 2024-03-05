@@ -37,8 +37,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            btn_visualizar = new Button();
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
             tabPage1 = new TabPage();
@@ -56,6 +56,7 @@
             btn_borrar = new Button();
             btn_modificar = new Button();
             tabPage2 = new TabPage();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -70,18 +71,8 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(681, 185);
             dataGridView1.TabIndex = 0;
+            toolTip1.SetToolTip(dataGridView1, "Resultado de la busqueda");
             dataGridView1.CellClick += dataGridView1_ActivarOpciones;
-            // 
-            // btn_visualizar
-            // 
-            btn_visualizar.Enabled = false;
-            btn_visualizar.Location = new Point(693, 239);
-            btn_visualizar.Name = "btn_visualizar";
-            btn_visualizar.Size = new Size(75, 23);
-            btn_visualizar.TabIndex = 1;
-            btn_visualizar.Text = "Visualizar";
-            btn_visualizar.UseVisualStyleBackColor = true;
-            btn_visualizar.Click += btn_ver;
             // 
             // tabControl1
             // 
@@ -121,7 +112,6 @@
             tabPage1.Controls.Add(btn_borrar);
             tabPage1.Controls.Add(btn_modificar);
             tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(btn_visualizar);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -139,6 +129,7 @@
             img_obra.SizeMode = PictureBoxSizeMode.Zoom;
             img_obra.TabIndex = 19;
             img_obra.TabStop = false;
+            toolTip1.SetToolTip(img_obra, "Imagen de la obra");
             // 
             // lbl_precio
             // 
@@ -147,6 +138,7 @@
             lbl_precio.Name = "lbl_precio";
             lbl_precio.Size = new Size(0, 15);
             lbl_precio.TabIndex = 18;
+            toolTip1.SetToolTip(lbl_precio, "Precio de la obra seleccionada");
             // 
             // label4
             // 
@@ -156,6 +148,7 @@
             label4.Size = new Size(43, 15);
             label4.TabIndex = 17;
             label4.Text = "Precio:";
+            toolTip1.SetToolTip(label4, "Precio");
             // 
             // btn_buscar
             // 
@@ -164,6 +157,7 @@
             btn_buscar.Size = new Size(75, 23);
             btn_buscar.TabIndex = 16;
             btn_buscar.Text = "Buscar";
+            toolTip1.SetToolTip(btn_buscar, "Botón para buscar obras");
             btn_buscar.UseVisualStyleBackColor = true;
             btn_buscar.Click += btn_cargarObras;
             // 
@@ -174,6 +168,7 @@
             lbl_movimiento.Name = "lbl_movimiento";
             lbl_movimiento.Size = new Size(0, 15);
             lbl_movimiento.TabIndex = 15;
+            toolTip1.SetToolTip(lbl_movimiento, "Movimiento de la obra seleccionada");
             // 
             // lbl_autor
             // 
@@ -184,6 +179,7 @@
             lbl_autor.Size = new Size(0, 15);
             lbl_autor.TabIndex = 14;
             lbl_autor.TextAlign = ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(lbl_autor, "Autor de la obra seleccionada");
             // 
             // lbl_titulo
             // 
@@ -192,6 +188,7 @@
             lbl_titulo.Name = "lbl_titulo";
             lbl_titulo.Size = new Size(0, 15);
             lbl_titulo.TabIndex = 13;
+            toolTip1.SetToolTip(lbl_titulo, "Título de la obra seleccionada");
             // 
             // label3
             // 
@@ -201,6 +198,7 @@
             label3.Size = new Size(75, 15);
             label3.TabIndex = 12;
             label3.Text = "Movimiento:";
+            toolTip1.SetToolTip(label3, "Movimiento");
             // 
             // label2
             // 
@@ -210,6 +208,7 @@
             label2.Size = new Size(40, 15);
             label2.TabIndex = 11;
             label2.Text = "Autor:";
+            toolTip1.SetToolTip(label2, "Autor");
             // 
             // label1
             // 
@@ -219,6 +218,7 @@
             label1.Size = new Size(40, 15);
             label1.TabIndex = 10;
             label1.Text = "Título:";
+            toolTip1.SetToolTip(label1, "Título");
             // 
             // btn_insertar
             // 
@@ -227,6 +227,7 @@
             btn_insertar.Size = new Size(75, 23);
             btn_insertar.TabIndex = 9;
             btn_insertar.Text = "Insertar";
+            toolTip1.SetToolTip(btn_insertar, "Abrir formulario de registro de nueva obra");
             btn_insertar.UseVisualStyleBackColor = true;
             btn_insertar.Click += btn_insertar_Click;
             // 
@@ -238,6 +239,7 @@
             btn_borrar.Size = new Size(75, 23);
             btn_borrar.TabIndex = 8;
             btn_borrar.Text = "Borrar";
+            toolTip1.SetToolTip(btn_borrar, "Borrar obra seleccionada");
             btn_borrar.UseVisualStyleBackColor = true;
             btn_borrar.Click += btn_borrar_Click;
             // 
@@ -249,6 +251,7 @@
             btn_modificar.Size = new Size(75, 23);
             btn_modificar.TabIndex = 7;
             btn_modificar.Text = "Modificar";
+            toolTip1.SetToolTip(btn_modificar, "Modificar obra seleccionada");
             btn_modificar.UseVisualStyleBackColor = true;
             btn_modificar.Click += btn_modificar_Click;
             // 
@@ -283,7 +286,6 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button btn_visualizar;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
@@ -301,5 +303,6 @@
         private Label lbl_precio;
         private Label label4;
         private PictureBox img_obra;
+        private ToolTip toolTip1;
     }
 }

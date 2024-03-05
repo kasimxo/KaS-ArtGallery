@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,6 +45,7 @@
             btn_nuevo_autor = new Button();
             btn_nuevo_movimiento = new Button();
             imagenChooser = new OpenFileDialog();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             SuspendLayout();
             // 
@@ -55,6 +57,7 @@
             label1.Size = new Size(40, 15);
             label1.TabIndex = 0;
             label1.Text = "Titulo:";
+            toolTip1.SetToolTip(label1, "Título");
             // 
             // label2
             // 
@@ -64,6 +67,7 @@
             label2.Size = new Size(40, 15);
             label2.TabIndex = 1;
             label2.Text = "Autor:";
+            toolTip1.SetToolTip(label2, "Autor");
             // 
             // label3
             // 
@@ -73,6 +77,7 @@
             label3.Size = new Size(75, 15);
             label3.TabIndex = 2;
             label3.Text = "Movimiento:";
+            toolTip1.SetToolTip(label3, "Movimiento");
             // 
             // label4
             // 
@@ -82,6 +87,7 @@
             label4.Size = new Size(43, 15);
             label4.TabIndex = 3;
             label4.Text = "Precio:";
+            toolTip1.SetToolTip(label4, "Precio");
             // 
             // txt_titulo
             // 
@@ -89,6 +95,7 @@
             txt_titulo.Name = "txt_titulo";
             txt_titulo.Size = new Size(146, 23);
             txt_titulo.TabIndex = 4;
+            toolTip1.SetToolTip(txt_titulo, "Introduce aquí el título de la obra");
             // 
             // txt_precio
             // 
@@ -96,6 +103,7 @@
             txt_precio.Name = "txt_precio";
             txt_precio.Size = new Size(146, 23);
             txt_precio.TabIndex = 7;
+            toolTip1.SetToolTip(txt_precio, "Precio de la obra");
             // 
             // picture
             // 
@@ -106,6 +114,7 @@
             picture.SizeMode = PictureBoxSizeMode.Zoom;
             picture.TabIndex = 8;
             picture.TabStop = false;
+            toolTip1.SetToolTip(picture, "Imagen de la obra");
             // 
             // label5
             // 
@@ -115,6 +124,7 @@
             label5.Size = new Size(47, 15);
             label5.TabIndex = 9;
             label5.Text = "Imagen";
+            toolTip1.SetToolTip(label5, "Imagen");
             // 
             // btn_modificar
             // 
@@ -123,6 +133,7 @@
             btn_modificar.Size = new Size(75, 23);
             btn_modificar.TabIndex = 10;
             btn_modificar.Text = "Cargar";
+            toolTip1.SetToolTip(btn_modificar, "Seleccionar archivo imagen");
             btn_modificar.UseVisualStyleBackColor = true;
             btn_modificar.Click += btn_seleccionarImagen_Click;
             // 
@@ -133,6 +144,7 @@
             btn_cancelar.Size = new Size(75, 23);
             btn_cancelar.TabIndex = 11;
             btn_cancelar.Text = "Cancelar";
+            toolTip1.SetToolTip(btn_cancelar, "Cancelar");
             btn_cancelar.UseVisualStyleBackColor = true;
             btn_cancelar.Click += btn_cancelar_Click;
             // 
@@ -143,6 +155,7 @@
             btn_guardar.Size = new Size(75, 23);
             btn_guardar.TabIndex = 12;
             btn_guardar.Text = "Guardar";
+            toolTip1.SetToolTip(btn_guardar, "Registrar nueva obra");
             btn_guardar.UseVisualStyleBackColor = true;
             btn_guardar.Click += btn_insertar_Click;
             // 
@@ -153,6 +166,7 @@
             cb_movimientos.Name = "cb_movimientos";
             cb_movimientos.Size = new Size(146, 23);
             cb_movimientos.TabIndex = 13;
+            toolTip1.SetToolTip(cb_movimientos, "Selecciona el movimiento de la obra");
             // 
             // cb_artistas
             // 
@@ -161,6 +175,7 @@
             cb_artistas.Name = "cb_artistas";
             cb_artistas.Size = new Size(146, 23);
             cb_artistas.TabIndex = 14;
+            toolTip1.SetToolTip(cb_artistas, "Selecciona el autor de la obra");
             // 
             // btn_nuevo_autor
             // 
@@ -169,6 +184,7 @@
             btn_nuevo_autor.Size = new Size(145, 23);
             btn_nuevo_autor.TabIndex = 15;
             btn_nuevo_autor.Text = "Nuevo autor";
+            toolTip1.SetToolTip(btn_nuevo_autor, "Registrar un nuevo artista");
             btn_nuevo_autor.UseVisualStyleBackColor = true;
             btn_nuevo_autor.Click += btn_nuevo_autor_Click;
             // 
@@ -179,6 +195,7 @@
             btn_nuevo_movimiento.Size = new Size(145, 23);
             btn_nuevo_movimiento.TabIndex = 16;
             btn_nuevo_movimiento.Text = "Nuevo movimiento";
+            toolTip1.SetToolTip(btn_nuevo_movimiento, "Registrar un nuevo movimiento");
             btn_nuevo_movimiento.UseVisualStyleBackColor = true;
             btn_nuevo_movimiento.Click += btn_nuevo_movimiento_Click;
             // 
@@ -231,5 +248,6 @@
         private Button btn_nuevo_autor;
         private Button btn_nuevo_movimiento;
         private OpenFileDialog imagenChooser;
+        private ToolTip toolTip1;
     }
 }
