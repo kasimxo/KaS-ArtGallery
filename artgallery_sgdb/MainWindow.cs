@@ -201,8 +201,9 @@ namespace artgallery_sgdb {
             int precio = Int32.Parse(dataGridView1.Rows[index].Cells[3].Value.ToString());
             String movimiento = dataGridView1.Rows[index].Cells[4].Value.ToString();
             String autor = dataGridView1.Rows[index].Cells[5].Value.ToString();
+            Boolean vendida = dataGridView1.Rows[index].Cells[6].Value.ToString() == "True" ? true : false;
 
-            ObraUpdate obra = new ObraUpdate(id_obra, titulo, imagen, precio, movimiento, autor);
+            ObraUpdate obra = new ObraUpdate(id_obra, titulo, imagen, precio, movimiento, autor, vendida);
             obra.Show();
         }
 

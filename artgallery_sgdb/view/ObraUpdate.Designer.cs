@@ -45,6 +45,12 @@
             btn_nuevo_autor = new Button();
             imagenChooser = new OpenFileDialog();
             fileSystemWatcher1 = new FileSystemWatcher();
+            label6 = new Label();
+            cb_vendida = new CheckBox();
+            lbl_cliente = new Label();
+            cb_clientes = new ComboBox();
+            calendario = new DateTimePicker();
+            lbl_calendario = new Label();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
@@ -193,11 +199,73 @@
             fileSystemWatcher1.EnableRaisingEvents = true;
             fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(378, 129);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 15);
+            label6.TabIndex = 19;
+            label6.Text = "Vendida:";
+            // 
+            // cb_vendida
+            // 
+            cb_vendida.AutoSize = true;
+            cb_vendida.Location = new Point(475, 128);
+            cb_vendida.Name = "cb_vendida";
+            cb_vendida.Size = new Size(15, 14);
+            cb_vendida.TabIndex = 20;
+            cb_vendida.UseVisualStyleBackColor = true;
+            cb_vendida.CheckedChanged += cb_vendida_CheckedChanged;
+            // 
+            // lbl_cliente
+            // 
+            lbl_cliente.AutoSize = true;
+            lbl_cliente.Location = new Point(378, 154);
+            lbl_cliente.Name = "lbl_cliente";
+            lbl_cliente.Size = new Size(47, 15);
+            lbl_cliente.TabIndex = 21;
+            lbl_cliente.Text = "Cliente:";
+            lbl_cliente.Visible = false;
+            // 
+            // cb_clientes
+            // 
+            cb_clientes.FormattingEnabled = true;
+            cb_clientes.Location = new Point(475, 148);
+            cb_clientes.Name = "cb_clientes";
+            cb_clientes.Size = new Size(146, 23);
+            cb_clientes.TabIndex = 22;
+            cb_clientes.Visible = false;
+            // 
+            // calendario
+            // 
+            calendario.Location = new Point(475, 177);
+            calendario.Name = "calendario";
+            calendario.Size = new Size(212, 23);
+            calendario.TabIndex = 23;
+            calendario.Visible = false;
+            // 
+            // lbl_calendario
+            // 
+            lbl_calendario.AutoSize = true;
+            lbl_calendario.Location = new Point(378, 183);
+            lbl_calendario.Name = "lbl_calendario";
+            lbl_calendario.Size = new Size(89, 15);
+            lbl_calendario.TabIndex = 24;
+            lbl_calendario.Text = "Fecha de venta:";
+            lbl_calendario.Visible = false;
+            // 
             // ObraUpdate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbl_calendario);
+            Controls.Add(calendario);
+            Controls.Add(cb_clientes);
+            Controls.Add(lbl_cliente);
+            Controls.Add(cb_vendida);
+            Controls.Add(label6);
             Controls.Add(btn_nuevo_movimiento);
             Controls.Add(btn_nuevo_autor);
             Controls.Add(cb_artistas);
@@ -240,5 +308,11 @@
         private Button btn_nuevo_autor;
         private OpenFileDialog imagenChooser;
         private FileSystemWatcher fileSystemWatcher1;
+        private Label label6;
+        private CheckBox cb_vendida;
+        private Label lbl_cliente;
+        private ComboBox cb_clientes;
+        private Label lbl_calendario;
+        private DateTimePicker calendario;
     }
 }
