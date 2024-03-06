@@ -154,3 +154,4 @@ C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\bin\Debug\net6.0-windows
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\bin\Debug\net6.0-windows\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\bin\Debug\net6.0-windows\informes\Informe_ventas.rdlc
 C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\bin\Debug\net6.0-windows\data_sources\conjunto_datos1.xsd
+C:\Desarrollo Interfaces\KaS-ArtGallery\artgallery_sgdb\obj\Debug\net6.0-windows\artgallery_sgdb.view.NuevoCliente.resources

@@ -16,10 +16,12 @@ namespace artgallery_sgdb {
         public MainWindow()
         {
             InitializeComponent();
+            recargarObras();
             cargarInforme();
         }
 
-        private void cargarInforme() {
+        private void cargarInforme()
+        {
             string sqlQuery = "SELECT obras.titulo AS Título, obras.precio AS Precio, movimientos.nombre AS Movimiento, artistas.nombre AS Autor, ventas.fecha_venta AS 'Fecha', clientes.nombre AS 'Nombre', clientes.apellido1 AS 'Apellido1', clientes.apellido2 AS 'Apellido2' FROM ventas INNER JOIN obras ON ventas.id_obra = obras.id_obra INNER JOIN clientes ON ventas.id_cliente = clientes.id_cliente INNER JOIN movimientos ON obras.id_movimiento = movimientos.id INNER JOIN artistas ON obras.id_artista = artistas.id";
 
 
@@ -34,7 +36,7 @@ namespace artgallery_sgdb {
 
 
                 visor_informe.LocalReport.ReportPath = ".\\informes\\Informe_ventas.rdlc";
-                
+
                 ReportDataSource source = new ReportDataSource("datos", dt);
                 visor_informe.LocalReport.DataSources.Add(source);
 
@@ -158,6 +160,11 @@ namespace artgallery_sgdb {
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
 
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+
                 //Unicamente nos interesamos por el primer resultado
                 DataRow resultado = ds.Tables[0].Rows[0];
                 lbl_titulo.Text = resultado[1].ToString();
@@ -242,6 +249,11 @@ namespace artgallery_sgdb {
             obraCreate.Show();
         }
 
-
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.ventana.nueva();
+            Program.ventana.Visible = true;
+            
+        }
     }
 }

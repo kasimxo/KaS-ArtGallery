@@ -140,6 +140,7 @@
             label4.TabIndex = 17;
             label4.Text = "Precio:";
             toolTip1.SetToolTip(label4, "Precio");
+            label4.Visible = false;
             // 
             // btn_buscar
             // 
@@ -190,6 +191,7 @@
             label3.TabIndex = 12;
             label3.Text = "Movimiento:";
             toolTip1.SetToolTip(label3, "Movimiento");
+            label3.Visible = false;
             // 
             // label2
             // 
@@ -200,6 +202,7 @@
             label2.TabIndex = 11;
             label2.Text = "Autor:";
             toolTip1.SetToolTip(label2, "Autor");
+            label2.Visible = false;
             // 
             // label1
             // 
@@ -210,6 +213,7 @@
             label1.TabIndex = 10;
             label1.Text = "Título:";
             toolTip1.SetToolTip(label1, "Título");
+            label1.Visible = false;
             // 
             // btn_insertar
             // 
@@ -276,6 +280,7 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Art Gallery";
+            FormClosing += MainWindow_FormClosing;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

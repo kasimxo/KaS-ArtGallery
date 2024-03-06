@@ -26,6 +26,11 @@ namespace artgallery_sgdb {
             txt_username.Text = string.Empty;
         }
 
+
+        public void nueva() {
+            txt_password.Text = string.Empty;
+            txt_username.Text = string.Empty;
+        }
         private void btn_acceder_Click(object sender, EventArgs e) {
             if (txt_username.Text.Length < 3 || txt_password.Text.Length < 5) {
                 MessageBox.Show("Usuario o contraseña no válidos");

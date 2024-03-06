@@ -53,6 +53,7 @@
             calendario = new DateTimePicker();
             lbl_calendario = new Label();
             toolTip1 = new ToolTip(components);
+            btn_nuevo_cliente = new Button();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
@@ -278,11 +279,24 @@
             toolTip1.SetToolTip(lbl_calendario, "Fecha de venta");
             lbl_calendario.Visible = false;
             // 
+            // btn_nuevo_cliente
+            // 
+            btn_nuevo_cliente.Location = new Point(643, 148);
+            btn_nuevo_cliente.Name = "btn_nuevo_cliente";
+            btn_nuevo_cliente.Size = new Size(145, 23);
+            btn_nuevo_cliente.TabIndex = 25;
+            btn_nuevo_cliente.Text = "Nuevo cliente";
+            toolTip1.SetToolTip(btn_nuevo_cliente, "Registrar nuevo cliente");
+            btn_nuevo_cliente.UseVisualStyleBackColor = true;
+            btn_nuevo_cliente.Visible = false;
+            btn_nuevo_cliente.Click += button1_Click;
+            // 
             // ObraUpdate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_nuevo_cliente);
             Controls.Add(lbl_calendario);
             Controls.Add(calendario);
             Controls.Add(cb_clientes);
@@ -338,5 +352,6 @@
         private Label lbl_calendario;
         private DateTimePicker calendario;
         private ToolTip toolTip1;
+        private Button btn_nuevo_cliente;
     }
 }

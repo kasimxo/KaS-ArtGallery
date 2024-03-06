@@ -205,12 +205,13 @@ namespace artgallery_sgdb.view
                 comm.ExecuteNonQuery();
                 comm.Dispose();
 
-                if (cb_vendida.Checked) {
+                if (cb_vendida.Checked)
+                {
                     int id_cliente;
                     long temp;
                     listaClientes.TryGetValue(cb_clientes.Text, out temp);
                     id_cliente = (int)temp;
-                    
+
                     string fecha = calendario.Value.ToLocalTime().ToString();
                     sqlQuery = "INSERT INTO dbo.ventas (id_obra, id_cliente, fecha_venta) VALUES('"
                     + id_obra + "', '" + id_cliente + "', '" + fecha + "');";
@@ -222,7 +223,7 @@ namespace artgallery_sgdb.view
                     comm.Dispose();
                 }
 
-                
+
 
 
                 con.Close();
@@ -274,6 +275,7 @@ namespace artgallery_sgdb.view
                 cb_clientes.Visible = true;
                 lbl_calendario.Visible = true;
                 calendario.Visible = true;
+                btn_nuevo_cliente.Visible = true;
             }
             else
             {
@@ -281,9 +283,14 @@ namespace artgallery_sgdb.view
                 cb_clientes.Visible = false;
                 lbl_calendario.Visible = false;
                 calendario.Visible = false;
+                btn_nuevo_cliente.Visible = false;
             }
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NuevoCliente nuevoCliente = new NuevoCliente(this);
+            nuevoCliente.Show();
+        }
     }
 }
