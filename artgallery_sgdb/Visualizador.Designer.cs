@@ -252,6 +252,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Visualizador";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Explorador de obras";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)img_obra).EndInit();

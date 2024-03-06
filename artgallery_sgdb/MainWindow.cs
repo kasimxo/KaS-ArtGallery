@@ -1,5 +1,7 @@
+using artgallery_sgdb.data_sources;
 using artgallery_sgdb.view;
 using Microsoft.Data.SqlClient;
+using Microsoft.Reporting.WinForms;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
@@ -14,8 +16,37 @@ namespace artgallery_sgdb {
         public MainWindow()
         {
             InitializeComponent();
+            cargarInforme();
         }
 
+        private void cargarInforme() {
+            string sqlQuery = "SELECT obras.titulo AS Título, obras.precio AS Precio, movimientos.nombre AS Movimiento, artistas.nombre AS Autor, ventas.fecha_venta AS 'Fecha', clientes.nombre AS 'Nombre', clientes.apellido1 AS 'Apellido1', clientes.apellido2 AS 'Apellido2' FROM ventas INNER JOIN obras ON ventas.id_obra = obras.id_obra INNER JOIN clientes ON ventas.id_cliente = clientes.id_cliente INNER JOIN movimientos ON obras.id_movimiento = movimientos.id INNER JOIN artistas ON obras.id_artista = artistas.id";
+
+
+            try
+            {
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connectionString);
+                SqlConnection con = new SqlConnection(connectionString);
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+
+                visor_informe.LocalReport.ReportPath = ".\\informes\\Informe_ventas.rdlc";
+                
+                ReportDataSource source = new ReportDataSource("datos", dt);
+                visor_informe.LocalReport.DataSources.Add(source);
+
+                visor_informe.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha surgido un problema visualizando los datos");
+                Debug.Write(ex.Message);
+            }
+
+        }
 
         private void btn_ver(object sender, EventArgs e)
         {
@@ -45,7 +76,7 @@ namespace artgallery_sgdb {
 
                 if (rutaImagen != null && rutaImagen.Length > 1)
                 {
-                    img_obra.Image = Image.FromFile(".\\imagenes\\"+rutaImagen);
+                    img_obra.Image = Image.FromFile(".\\imagenes\\" + rutaImagen);
                 }
                 else
                 {
@@ -92,7 +123,7 @@ namespace artgallery_sgdb {
             recargarObras();
         }
 
-        
+
         private void dataGridView1_ActivarOpciones(object sender, DataGridViewCellEventArgs e)
         {
             //Comprobamos si el usuario ha seleccionado algo para habilitar los botones
@@ -210,5 +241,7 @@ namespace artgallery_sgdb {
             ObraCreate obraCreate = new ObraCreate();
             obraCreate.Show();
         }
+
+
     }
 }

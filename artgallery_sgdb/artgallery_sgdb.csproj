@@ -9,11 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="data_sources\conjunto_datos1.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="data_sources\conjunto_datos1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>conjunto_datos1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.19" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="data_sources\conjunto_datos1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>conjunto_datos1.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -33,6 +50,12 @@
 
   <ItemGroup>
     <Folder Include="imgs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="informes\Informe_ventas.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

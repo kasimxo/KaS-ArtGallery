@@ -73,7 +73,7 @@ namespace artgallery_sgdb
 
         private void primeraCarga()
         {
-            string sqlQuery = "SELECT titulo AS 'Título', autor AS 'Autor', movimiento AS 'Movimiento' FROM dbo.view_obras;";
+            string sqlQuery = "SELECT titulo AS 'Título', autor AS 'Autor', movimiento AS 'Movimiento' FROM dbo.view_obras WHERE vendida='False';";
 
             try
             {

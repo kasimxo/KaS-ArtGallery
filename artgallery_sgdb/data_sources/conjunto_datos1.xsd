@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="conjunto_datos1" targetNamespace="http://tempuri.org/conjunto_datos1.xsd" xmlns:mstns="http://tempuri.org/conjunto_datos1.xsd" xmlns="http://tempuri.org/conjunto_datos1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=.\LASTTRY;Initial Catalog=artgallery;Persist Security Info=True;User ID=administrador;Password=admin1234;Encrypt=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-25fe3p6\lasttry.artgallery.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tabla_ventasTableAdapter" GeneratorDataComponentClassName="tabla_ventasTableAdapter" Name="tabla_ventas" UserDataComponentName="tabla_ventasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="desktop-25fe3p6\lasttry.artgallery.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        obras.titulo AS Título, obras.precio AS Precio, movimientos.nombre AS Movimiento, artistas.nombre AS Autor, ventas.fecha_venta AS 'Fecha', clientes.nombre AS 'Nombre', clientes.apellido1 AS 'Apellido1', 
+                         clientes.apellido2 AS 'Apellido2'
+FROM            ventas INNER JOIN
+                         obras ON ventas.id_obra = obras.id_obra INNER JOIN
+                         clientes ON ventas.id_cliente = clientes.id_cliente INNER JOIN
+                         movimientos ON obras.id_movimiento = movimientos.id INNER JOIN
+                         artistas ON obras.id_artista = artistas.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Título" DataSetColumn="Título" />
+              <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
+              <Mapping SourceColumn="Movimiento" DataSetColumn="Movimiento" />
+              <Mapping SourceColumn="Autor" DataSetColumn="Autor" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Apellido1" DataSetColumn="Apellido1" />
+              <Mapping SourceColumn="Apellido2" DataSetColumn="Apellido2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="conjunto_datos1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="conjunto_datos1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="conjunto_datos1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tabla_ventas" msprop:Generator_RowClassName="tabla_ventasRow" msprop:Generator_RowEvHandlerName="tabla_ventasRowChangeEventHandler" msprop:Generator_RowDeletedName="tabla_ventasRowDeleted" msprop:Generator_RowDeletingName="tabla_ventasRowDeleting" msprop:Generator_RowEvArgName="tabla_ventasRowChangeEvent" msprop:Generator_TablePropName="tabla_ventas" msprop:Generator_RowChangedName="tabla_ventasRowChanged" msprop:Generator_UserTableName="tabla_ventas" msprop:Generator_RowChangingName="tabla_ventasRowChanging" msprop:Generator_TableClassName="tabla_ventasDataTable" msprop:Generator_TableVarName="tabletabla_ventas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Título" msprop:Generator_UserColumnName="Título" msprop:Generator_ColumnPropNameInTable="TítuloColumn" msprop:Generator_ColumnPropNameInRow="Título" msprop:Generator_ColumnVarNameInTable="columnTítulo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio" msprop:Generator_UserColumnName="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnVarNameInTable="columnPrecio" type="xs:int" minOccurs="0" />
+              <xs:element name="Movimiento" msprop:Generator_UserColumnName="Movimiento" msprop:Generator_ColumnPropNameInTable="MovimientoColumn" msprop:Generator_ColumnPropNameInRow="Movimiento" msprop:Generator_ColumnVarNameInTable="columnMovimiento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Autor" msprop:Generator_UserColumnName="Autor" msprop:Generator_ColumnPropNameInTable="AutorColumn" msprop:Generator_ColumnPropNameInRow="Autor" msprop:Generator_ColumnVarNameInTable="columnAutor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre" msprop:Generator_UserColumnName="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
+              <xs:element name="Apellido1" msprop:Generator_ColumnPropNameInRow="Apellido1" msprop:Generator_ColumnPropNameInTable="Apellido1Column" msprop:Generator_ColumnVarNameInTable="columnApellido1" msprop:Generator_UserColumnName="Apellido1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellido2" msprop:Generator_ColumnPropNameInRow="Apellido2" msprop:Generator_ColumnPropNameInTable="Apellido2Column" msprop:Generator_ColumnVarNameInTable="columnApellido2" msprop:Generator_UserColumnName="Apellido2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

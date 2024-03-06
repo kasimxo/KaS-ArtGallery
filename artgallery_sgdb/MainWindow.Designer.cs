@@ -40,7 +40,6 @@
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             tabControl1 = new TabControl();
-            tabPage3 = new TabPage();
             tabPage1 = new TabPage();
             img_obra = new PictureBox();
             lbl_precio = new Label();
@@ -56,11 +55,13 @@
             btn_borrar = new Button();
             btn_modificar = new Button();
             tabPage2 = new TabPage();
+            visor_informe = new Microsoft.Reporting.WinForms.ReportViewer();
             toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)img_obra).BeginInit();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -77,7 +78,6 @@
             // tabControl1
             // 
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Location = new Point(9, 9);
@@ -86,15 +86,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(782, 429);
             tabControl1.TabIndex = 2;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(774, 401);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Visualizador";
-            tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -257,6 +248,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(visor_informe);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -264,6 +256,15 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Informes";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // visor_informe
+            // 
+            visor_informe.Dock = DockStyle.Fill;
+            visor_informe.Location = new Point(3, 3);
+            visor_informe.Name = "ReportViewer";
+            visor_informe.ServerReport.BearerToken = null;
+            visor_informe.Size = new Size(768, 395);
+            visor_informe.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -280,6 +281,7 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)img_obra).EndInit();
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -289,7 +291,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TabPage tabPage3;
         private Button btn_insertar;
         private Button btn_borrar;
         private Button btn_modificar;
@@ -304,5 +305,6 @@
         private Label label4;
         private PictureBox img_obra;
         private ToolTip toolTip1;
+        private Microsoft.Reporting.WinForms.ReportViewer visor_informe;
     }
 }

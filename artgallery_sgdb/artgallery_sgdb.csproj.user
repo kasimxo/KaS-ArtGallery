@@ -22,11 +22,13 @@
     <Compile Update="view\RegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\IconosDeVentana.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Visualizador.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="data_sources\conjunto_datos1.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
